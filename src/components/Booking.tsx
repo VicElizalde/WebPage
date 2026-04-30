@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Calendar, User, Mail, Phone, Clock, ChevronDown } from 'lucide-react';
+import { Calendar, User, Mail, Phone, Clock, ChevronDown, CheckCircle, X } from 'lucide-react';
 
 export default function Booking() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -24,7 +25,9 @@ export default function Booking() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.alert('Your form has been submitted successfully!');
+
+    setShowSuccessModal(true);
+
     setFormData({
       fullName: '',
       email: '',
@@ -43,15 +46,15 @@ export default function Booking() {
   return (
     <section id="booking" className="py-20 bg-bg-light">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-[31.75px] font-bold text-dark mb-3 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">
-            Schedule Your Appointment
+            Agenda tu consulta
           </h2>
           <p className="text-body text-[15.75px] leading-relaxed">
-            Take the first step towards better mental health.<br />
-            Fill out the form below and we'll get back to you within 24 hours.
+            Inicia un espacio de escucha y acompañamiento.<br />
+            Completa el formulario y te responderemos en menos de 24 horas.
           </p>
         </div>
 
@@ -60,27 +63,27 @@ export default function Booking() {
           <div className="text-center mb-4">
             <h3 className="flex items-center justify-center gap-2 text-dark font-medium text-[14px] mb-0.5">
               <Calendar className="w-4 h-4 text-black" />
-              Book Your Consultation
+              Reserva tu consulta
             </h3>
             <p className="text-body text-[14px]">
-              All information is kept strictly confidential
+              Toda la información se mantiene bajo estricta confidencialidad.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col h-[calc(100%-60px)]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-              
+
               {/* Full Name */}
               <div>
                 <label htmlFor="fullName" className={labelClasses}>
                   <User className="w-3.5 h-3.5 text-black" />
-                  Full Name *
+                  Nombre completo *
                 </label>
-                <input 
-                  type="text" 
-                  id="fullName" 
+                <input
+                  type="text"
+                  id="fullName"
                   name="fullName"
-                  placeholder="Enter your full name" 
+                  placeholder="Ingrese su nombre completo"
                   required
                   value={formData.fullName}
                   onChange={handleChange}
@@ -92,13 +95,13 @@ export default function Booking() {
               <div>
                 <label htmlFor="email" className={labelClasses}>
                   <Mail className="w-3.5 h-3.5 text-black" />
-                  Email Address *
+                  Correo Electrónico *
                 </label>
-                <input 
-                  type="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  id="email"
                   name="email"
-                  placeholder="your.email@example.com" 
+                  placeholder="tu.correo@ejemplo.com"
                   required
                   value={formData.email}
                   onChange={handleChange}
@@ -110,13 +113,13 @@ export default function Booking() {
               <div>
                 <label htmlFor="phone" className={labelClasses}>
                   <Phone className="w-3.5 h-3.5 text-black" />
-                  Phone Number *
+                  Número telefónico *
                 </label>
-                <input 
-                  type="tel" 
-                  id="phone" 
+                <input
+                  type="tel"
+                  id="phone"
                   name="phone"
-                  placeholder="1234567890" 
+                  placeholder="1234567890"
                   pattern="[0-9]{10}"
                   maxLength={10}
                   title="Phone number must be exactly 10 digits"
@@ -130,24 +133,24 @@ export default function Booking() {
               {/* Service Type */}
               <div>
                 <label htmlFor="serviceType" className={labelClasses}>
-                  Service Type
+                  Tipo de servicio
                 </label>
                 <div className="relative">
-                  <select 
-                    id="serviceType" 
+                  <select
+                    id="serviceType"
                     name="serviceType"
                     value={formData.serviceType}
                     onChange={handleChange}
                     className={inputClasses}
                   >
-                    <option value="" disabled className="text-gray-400">Select a service</option>
-                    <option value="Initial consultation">Initial consultation</option>
-                    <option value="Individual therapy">Individual therapy</option>
-                    <option value="Couples therapy">Couples therapy</option>
-                    <option value="Family Counseling">Family Counseling</option>
-                    <option value="Career guidance">Career guidance</option>
-                    <option value="Cognitive behavioral therapy">Cognitive behavioral therapy</option>
-                    <option value="Mindfulness & wellness">Mindfulness & wellness</option>
+                    <option value="" disabled className="text-gray-400">Selecciona un servicio</option>
+                    <option value="Consulta inicial">Consulta inicial</option>
+                    <option value="Psicoterapia individual">Psicoterapia individual</option>
+                    <option value="Terapia de pareja">Terapia de pareja</option>
+                    <option value="Orientación familiar">Orientación familiar</option>
+                    <option value="Orientación profesional">Orientación profesional</option>
+                    <option value="Psicoanálisis">Psicoanálisis</option>
+                    <option value="Bienestar emocional">Bienestar emocional</option>
                   </select>
                   <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
                 </div>
@@ -157,11 +160,11 @@ export default function Booking() {
               <div>
                 <label htmlFor="preferredDate" className={labelClasses}>
                   <Calendar className="w-3.5 h-3.5 text-black" />
-                  Preferred Date
+                  Fecha preferida
                 </label>
-                <input 
-                  type="date" 
-                  id="preferredDate" 
+                <input
+                  type="date"
+                  id="preferredDate"
                   name="preferredDate"
                   min={todayDate}
                   value={formData.preferredDate}
@@ -175,20 +178,20 @@ export default function Booking() {
               <div>
                 <label htmlFor="preferredTime" className={labelClasses}>
                   <Clock className="w-3.5 h-3.5 text-black" />
-                  Preferred Time
+                  Horario Preferido
                 </label>
                 <div className="relative">
-                  <select 
-                    id="preferredTime" 
+                  <select
+                    id="preferredTime"
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
                     className={inputClasses}
                   >
-                    <option value="" disabled className="text-gray-400">Select time</option>
-                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
-                    <option value="Afternoon (12 PM - 5 PM)">Afternoon (12 PM - 5 PM)</option>
-                    <option value="Evening (5 PM - 8 PM)">Evening (5 PM - 8 PM)</option>
+                    <option value="" disabled className="text-gray-400">Elije horario</option>
+                    <option value="Morning (9 AM - 12 PM)">Mañana (9 AM - 12 PM)</option>
+                    <option value="Afternoon (12 PM - 5 PM)">Tarde (12 PM - 5 PM)</option>
+                    <option value="Evening (5 PM - 8 PM)">Noche (5 PM - 8 PM)</option>
                   </select>
                   <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-black pointer-events-none" />
                 </div>
@@ -198,12 +201,12 @@ export default function Booking() {
             {/* Reason for Visit */}
             <div className="flex-1 flex flex-col mb-3">
               <label htmlFor="reason" className="block text-dark font-medium text-[12.5px] mb-1">
-                Reason for Visit *
+                Motivo de consulta *
               </label>
-              <textarea 
-                id="reason" 
+              <textarea
+                id="reason"
                 name="reason"
-                placeholder="Please briefly describe what you'd like help with..." 
+                placeholder="Por favor, describa en qué necesita ayuda..."
                 required
                 value={formData.reason}
                 onChange={handleChange}
@@ -211,15 +214,15 @@ export default function Booking() {
               />
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="w-full bg-[#4e9c96] hover:bg-[#3f847e] text-white py-2.5 rounded-lg font-medium text-[12.5px] transition-colors"
             >
-              Send Booking Request
+              Enviar solicitud de reserva
             </button>
 
             <p className="text-center text-body text-[11px] mt-3">
-              By submitting this form, you agree to our privacy policy. We'll contact you within 24 hours to confirm your appointment.
+              Al enviar este formulario, acepta nuestra política de privacidad. Nos pondremos en contacto con usted en un plazo de 24 horas para confirmar su cita.
             </p>
           </form>
 
@@ -228,7 +231,7 @@ export default function Booking() {
         {/* Contact Info Outside Form */}
         <div className="text-center mt-8 space-y-2">
           <p className="text-body text-[14px]">
-            Prefer to call? We're here to help.
+            ¿Prefieres llamarnos? Estamos aquí para ayudarte.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-[#4e9c96] text-[14px] font-medium">
             <div className="flex items-center gap-2">
@@ -243,6 +246,40 @@ export default function Booking() {
         </div>
 
       </div>
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+          <div className="relative w-full max-w-md rounded-2xl bg-white p-7 text-center shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button
+              type="button"
+              onClick={() => setShowSuccessModal(false)}
+              className="absolute right-4 top-4 rounded-full p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700"
+              aria-label="Cerrar"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#e6f4f2]">
+              <CheckCircle className="h-9 w-9 text-[#4e9c96]" />
+            </div>
+
+            <h3 className="mb-2 text-[22px] font-bold text-dark">
+              Solicitud enviada
+            </h3>
+
+            <p className="mb-6 text-[15px] leading-relaxed text-body">
+              Gracias por contactarnos. Hemos recibido tu solicitud y nos pondremos en contacto contigo en menos de 24 horas para confirmar tu cita.
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setShowSuccessModal(false)}
+              className="w-full rounded-lg bg-[#4e9c96] px-5 py-2.5 text-[14px] font-medium text-white transition hover:bg-[#3f847e]"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

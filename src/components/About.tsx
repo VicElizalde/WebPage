@@ -1,14 +1,15 @@
 import React from 'react';
 import { GraduationCap, Users, Heart } from 'lucide-react';
+import aboutImage from '../images/about_image.png';
 
 export default function About() {
   const specializations = [
-    "Anxiety & Depression",
-    "Relationship Counseling",
-    "Trauma Therapy",
-    "Career Transitions",
-    "Mindfulness-Based Therapy",
-    "Family Counseling"
+    "Ansiedad y depresión",
+    "Vínculos y pareja",
+    "Trauma",
+    "Cambios vitales",
+    "Malestar emocional",
+    "Orientación familiar"
   ];
 
   return (
@@ -18,24 +19,23 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-[31.75px] font-bold text-dark mb-4 tracking-tight">
-            About Dr. Sarah Mitchell
+            Sobre Rosaura González
           </h2>
           <p className="text-body text-[15.75px] leading-relaxed">
-            Dedicated to providing compassionate, evidence-based therapy to help you 
-            achieve lasting positive change.
+            Dedicada a ofrecer un espacio de escucha profesional para acompañar procesos de cambio y elaboración personal.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Image Column */}
-          <div className="flex justify-center">
-            <div className="relative">
+          <div className="flex justify-start relative">
+            <div className="relative left-16">
               <div className="w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden shadow-2xl relative z-10 flex items-center justify-center bg-gray-100">
                 <img 
-                  src="/dr-mitchell.png" 
+                  src={aboutImage}
                   alt="Dr. Sarah Mitchell" 
-                  className="w-full h-full object-cover object-[center_15%] rounded-full"
+                  className="w-full h-full object-cover object-[center_0%] rounded-full"
                 />
               </div>
               
@@ -59,11 +59,9 @@ export default function About() {
                 <GraduationCap className="w-5 h-5" strokeWidth={2} />
               </div>
               <div>
-                <h3 className="font-semibold text-dark text-[14px] mb-2">Education & Credentials</h3>
+                <h3 className="font-semibold text-dark text-[14px] mb-2">Formación académica</h3>
                 <p className="text-body text-sm leading-relaxed">
-                  Ph.D. in Clinical Psychology from Stanford University. 
-                  Licensed Clinical Psychologist with over 12 years of 
-                  experience in therapeutic practice.
+                  Maestría en Psicoanálisis. Psicóloga con experiencia en acompañamiento clínico y procesos terapéuticos desde una orientación psicoanalítica.
                 </p>
               </div>
             </div>
@@ -75,19 +73,16 @@ export default function About() {
                 <Users className="w-5 h-5" strokeWidth={2} />
               </div>
               <div>
-                <h3 className="font-semibold text-dark text-[14px] mb-2">Therapeutic Approach</h3>
+                <h3 className="font-semibold text-dark text-[14px] mb-2">Enfoque terapéutico</h3>
                 <p className="text-body text-sm leading-relaxed">
-                  I believe in creating a safe, non-judgmental space 
-                  where clients can explore their thoughts and feelings. 
-                  My approach combines evidence-based techniques 
-                  with genuine empathy.
+                  Mi trabajo se orienta a construir un espacio de escucha, confidencial y sin juicio, donde cada persona pueda explorar su historia, sus vínculos y aquello que le causa malestar.
                 </p>
               </div>
             </div>
 
             {/* Specializations */}
             <div className="mt-2">
-              <h3 className="font-semibold text-dark text-[14px] mb-3">Specializations</h3>
+              <h3 className="font-semibold text-dark text-[14px] mb-3">Áreas de atención</h3>
               <div className="flex flex-wrap gap-2">
                 {specializations.map((spec, index) => (
                   <span 

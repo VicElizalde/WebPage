@@ -3,29 +3,29 @@ import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const testimonials = [
   {
-    text: "Dr. Mitchell's compassionate approach helped me work through years of anxiety. I finally feel like myself again and have the tools to manage stress effectively.",
-    author: "Sarah K.",
-    location: "San Francisco, CA"
+    text: "El proceso terapéutico me ayudó a entender mi desgaste laboral, poner límites y recuperar claridad en mis decisiones.",
+    author: "Paciente anónimo",
+    location: "Lago esmeralda, Atizapán de Zaragoza"
   },
   {
-    text: "The couples therapy sessions completely transformed our marriage. We learned how to communicate better and understand each other's needs.",
-    author: "Michael T.",
-    location: "Oakland, CA"
+    text: "Encontré un espacio de escucha donde pude hablar sin juicio y comenzar a elaborar aquello que me causaba malestar.",
+    author: "Paciente anónimo",
+    location: "Fuentes de Satélite, Cdad. López Mateos"
   },
   {
-    text: "I was struggling with burnout and career direction. The guidance I received here gave me the clarity and confidence to make a positive change.",
-    author: "Emily R.",
-    location: "San Jose, CA"
+    text: "El proceso con Rosaura me ayudó a comprender mi historia, mis vínculos y mi angustia con mayor claridad.",
+    author: "Paciente anónimo",
+    location: "Lomas Verdes, Naucalpan de Juárez"
   },
   {
-    text: "A truly safe and non-judgmental space. I felt heard and understood from the very first session. Highly recommend to anyone seeking support.",
-    author: "David L.",
-    location: "Berkeley, CA"
+    text: "Llegué por una relación con rasgos narcisistas. Rosaura me ayudó a entender la dinámica y a recuperar mi lugar.",
+    author: "Paciente anónimo",
+    location: "Bosque Esmeralda, Cdad. López Mateos"
   },
   {
-    text: "The mindfulness techniques I learned have been life-changing. I now have practical ways to ground myself when overwhelmed.",
-    author: "Jessica W.",
-    location: "Palo Alto, CA"
+    text: "La consulta me ayudó a comprender mi ansiedad desde otra perspectiva y a iniciar un proceso de cambio más profundo.",
+    author: "Paciente anónimo",
+    location: "La Cuspide, Naucalpan de Juárez"
   }
 ];
 
@@ -42,10 +42,10 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-[31.75px] font-bold text-dark mb-4 tracking-tight">
-            What Clients Say
+            Lo que dicen los pacientes
           </h2>
           <p className="text-body text-[15.75px] leading-relaxed">
-            Real stories from people who have found healing and growth through therapy.
+            Experiencias de personas que han iniciado un proceso de escucha, elaboración y cambio.
           </p>
         </div>
 
@@ -118,15 +118,15 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-32 mt-20 text-center">
           <div>
             <h4 className="text-[21px] font-bold text-primary mb-2">500+</h4>
-            <p className="text-body text-[14px]">Clients Helped</p>
+            <p className="text-body text-[14px]">Pacientes atendidos</p>
           </div>
           <div>
             <h4 className="text-[21px] font-bold text-primary mb-2">12+</h4>
-            <p className="text-body text-[14px]">Years Experience</p>
+            <p className="text-body text-[14px]">Años de experiencia</p>
           </div>
           <div>
-            <h4 className="text-[21px] font-bold text-primary mb-2">98%</h4>
-            <p className="text-body text-[14px]">Client Satisfaction</p>
+            <h4 className="text-[19px] font-bold text-primary mb-2">Atención</h4>
+            <p className="text-body text-[14px]"> Ética y confidencial</p>
           </div>
         </div>
 
